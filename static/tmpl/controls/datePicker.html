@@ -1,0 +1,8 @@
+<div class="input-group">
+
+    <input type="text" class="form-control" datepicker-popup="{{db_service.formats.date}}" ng-model="date" is-open="is_open" datepicker-options="db_service.dateOptions" date-disabled="db_service.disabled(date, mode)" ng-required="false" close-text="×" current-text="Сегодня" toggle-weeks-text="Неделя" clear-text="Очистить" />
+    <span class="input-group-btn">
+        <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+
+</div>

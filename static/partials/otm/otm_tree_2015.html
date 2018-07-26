@@ -1,0 +1,18 @@
+<md-tabs md-dynamic-height md-border-bottom md-center-tabs="false" md-swipe-content="true" style="width: 100%;">
+
+    <md-tab>
+        <md-tab-label>Планы ОТМ</md-tab-label>
+        <md-tab-body>
+            <rb-tree-table  row-source="otm_tree_2015"></rb-tree-table>
+        </md-tab-body>
+    </md-tab>
+
+    <md-tab>
+        <md-tab-label>График выполнения мероприятия</md-tab-label>
+        <md-tab-body>
+            <rb-table row-source="otm_instr"></rb-table>
+            <rb-table row-source="otm_instr_body"></rb-table>
+        </md-tab-body>
+    </md-tab>
+
+</md-tabs>

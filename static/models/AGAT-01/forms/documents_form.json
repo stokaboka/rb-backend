@@ -1,0 +1,27 @@
+{
+  "component_type": "form",
+  "id": "documents_form",
+  "title": "Документы",
+  "description": "Мероприятиям по контролю за качеством",
+  "template": "<div> <rb-table row-source='documents' history-source='documents_history'></rb-table>  <rb-table row-source='tasks' history-source='tasks_history'></rb-table> </div>",
+
+  "datasources":
+  [
+    "documents",
+    "documents_history",
+    "tasks",
+    "tasks_history"
+  ],
+
+  "parameters":
+  [
+    {
+      "datasource": "documents",
+      "parameter": "document_id"
+
+    }
+  ],
+
+  "enabled": true,
+  "order": 0
+}

@@ -1,0 +1,135 @@
+{
+  "id": "v_employees_groups",
+  "component_type": "datasource",
+  "title": "Сотрудники",
+  "database": "system",
+  "database_engine": "mysql",
+  "table": "v_employees_groups",
+  "headers": true,
+  "orderby": [],
+  "groupby": [],
+  "filter_enabled": true,
+  "order_enabled": true,
+  "pager_enabled": true,
+  "report_enabled": true,
+  "history_enabled": true,
+  "page_length": 10,
+  "columns": [
+    {
+      "id": "id",
+      "title": "id",
+      "db_name": "id",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "name",
+      "title": "Цех/отдел",
+      "db_name": "name",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "default_order": {
+        "db_name": "",
+        "db_type": "",
+        "dir": "ASC",
+        "num": 1
+      }
+    },
+    {
+      "id": "fam",
+      "title": "Фамилия",
+      "db_name": "fam",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "default_order": {
+        "db_name": "",
+        "db_type": "",
+        "dir": "ASC",
+        "num": 2
+      }
+    },
+    {
+      "id": "im",
+      "title": "Имя",
+      "db_name": "im",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "default_order": {
+        "db_name": "",
+        "db_type": "",
+        "dir": "ASC",
+        "num": 3
+      }
+    },
+    {
+      "id": "ot",
+      "title": "Отчество",
+      "db_name": "ot",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "default_order": {
+        "db_name": "",
+        "db_type": "",
+        "dir": "ASC",
+        "num": 4
+      }
+    },
+    {
+      "id": "dot_fam",
+      "title": "Фамилия И.О.",
+      "db_name": "dot_fam",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "role_name",
+      "title": "Должность",
+      "db_name": "role_name",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    }
+  ],
+  "validators": []
+}

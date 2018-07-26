@@ -1,0 +1,53 @@
+{"id":"AGAT","saved_id":"AGAT","description":"АГАТ тестовое приложение","default":{"database":"system","database_engine":"mysql"},
+
+  "applications":[
+    {"id":"quality_control","title":"Качество","description":"","enabled":true,"order":0,
+      "forms":[
+        {"id":"documents_form","enabled":true,"order":0},
+        {"id":"tasks_form","enabled":true,"order":1},
+        {"id":"quality_gantt_form","enabled":true,"order":2}
+      ]
+    },
+    {"id":"otm","title":"Планы ОТМ","description":"","enabled":true,"order":0,
+      "forms":[
+        {"id":"otm_2017_form","enabled":true,"order":0},
+        {"id":"otm_2016_form","enabled":true,"order":1}
+      ]
+    },
+    {"id":"manufactoring_process","title":"Производство","description":"Производство","enabled":true,"order":0,
+      "forms":[
+        {"id":"manufactoring_process_form","enabled":true,"order":0}
+      ]
+    }
+  ],
+
+  "forms":[["+","otm_2017_form","otm_2017_form"],["+","otm_2016_form","otm_2016_form"],["+","manufactoring_process_form","manufactoring_process_form"],["+","documents_form","documents_form"],["+","tasks_form","tasks_form"],["+","quality_gantt_form","quality_gantt_form"]],
+
+  "datasources":[["+","/models/AGAT/ds/documents.json","documents"],["+","/models/AGAT/ds/tasks.json","tasks"],["+","/models/AGAT/ds/documents_history.json","documents_history"],["+","/models/AGAT/ds/tasks_history.json","tasks_history"],["+","/models/AGAT/ds/v_documents_tasks.json","v_documents_tasks"],["+","/models/AGAT/ds/v_document_or_tasks.json","v_document_or_tasks"],["+","/models/AGAT/ds/v_documents_tasks_gantt.json","v_documents_tasks_gantt"],["+","/models/AGAT/ds/documents_categories.json","documents_categories"],["+","/models/AGAT/ds/tasks_status.json","tasks_status"],["+","/models/AGAT/ds/documents_status.json","documents_status"],["+","/models/AGAT/ds/documents_types.json","documents_types"],["+","/models/AGAT/ds/documents_source.json","documents_source"],["+","/models/AGAT/ds/control_levels.json","control_levels"],["+","/models/AGAT/ds/v_employees_groups.json","v_employees_groups"],["+","/models/AGAT/ds/otm_tree_2016.json","otm_tree_2016"],["+","/models/AGAT/ds/otm_tree_2017.json","otm_tree_2017"],["+","/models/AGAT/ds/otm_instr.json","otm_instr"],["+","/models/AGAT/ds/otm_instr_body.json","otm_instr_body"],["+","/models/AGAT/ds/v_manufactoring_process_1.json","v_manufactoring_process_1"]],
+
+  "relations":[
+    {
+      "source": { "datasource": "documents", "column": "id"}, "target": { "datasource": "tasks", "column": "id_document"}
+    },
+
+    {
+      "source": { "datasource": "documents", "column": "id"}, "target": { "datasource": "documents_history", "column": "id_document" }
+    },
+
+    {
+      "source": { "datasource": "tasks", "column": "id"},  "target": { "datasource": "tasks_history", "column": "id_task" }
+    },
+
+    {
+      "source": { "datasource": "otm_tree_2016", "column": "id"}, "target": { "datasource": "otm_instr", "column": "id_otm_object"}
+    },
+
+    {
+      "source": { "datasource": "otm_tree_2017", "column": "id"}, "target": { "datasource": "otm_instr", "column": "id_otm_object"}
+    },
+
+    {
+      "source": { "datasource": "otm_instr", "column": "id_otm_instr"}, "target": { "datasource": "otm_instr_body", "column": "id_otm_instr"}
+    }
+  ]
+,"listvalues":[],"comboboxes":[],"lists":[],"sequences":[],"rowvalidators":[],"rowfilters":[],"hierarchymodels":[],"datamaps":[],"gadgets":[],"bindings":[]}

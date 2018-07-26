@@ -1,0 +1,91 @@
+<md-dialog aria-label="rbModel.transaction.dataSource.editor_title">
+
+        <form method="post" enctype="multipart/form-data" style="display: table;">
+
+            <md-toolbar style="min-height: 40px;">
+                <div class="md-toolbar-tools" style="height: 40px;">
+                    <h4>{{rbModel.transaction.dataSource.editor_title}}</h4>
+                    <span flex></span>
+                    <ng-md-icon icon="close" style="cursor: pointer;" ng-click="cancel()"></ng-md-icon>
+                </div>
+            </md-toolbar>
+
+            <md-dialog-content >
+                <div class="md-dialog-content" style="padding: 6px 24px 0px 24px">
+                        <div ng-repeat="v_column in rbModel.transaction.columns  | filter: {editable: true }" style="margin: 1px; display: table-row;">
+
+                            <div style="display: table-cell; margin-right: 5px;" layout="row" layout-align="start center">
+                                <span>{{v_column.title}}</span>
+                                <p ng-class="v_column.message_class">{{v_column.message}}</p>
+                            </div>
+
+                            <div ng-if="v_column.listvalues == null && v_column.combobox == null  && v_column.sequence == null" style="display: table-cell;">
+                                <div ng-if="v_column.editable">
+                                    <div ng-switch on="v_column.db_type">
+
+                                        <div ng-switch-when="NUMBER" >
+                                            <input type="number"  ng-focus="hide_listvalues()" ng-model="rbModel.transaction.data[v_column.db_name]" class="long" style="width: 100%;">
+                                        </div>
+
+                                        <div ng-switch-when="FILE" >
+                                            <input type="file" id="input_document_file_id" target_field="{{v_column.db_name}}" name="document_file" file-selector-on-change="fileToUploadChanged">
+                                        </div>
+
+                                        <div ng-switch-when="TEXT" >
+                                            <textarea rows="4" cols="50" ng-focus="hide_listvalues()" placeholder="{{v_column.title}}" style="width: 100%;" ng-model="rbModel.transaction.data[v_column.db_name]" ng-required="false" class="form-control"></textarea>
+                                        </div>
+
+                                        <div ng-switch-when="DATE" >
+                                            <md-datepicker ng-model="rbModel.transaction.data[v_column.db_name]" ng-focus="hide_listvalues()"></md-datepicker>
+                                            <!--<input type="date"  ng-focus="hide_listvalues()" ng-model="rbModel.transaction.data[v_column.db_name]" class="long" style="width: 100%;">-->
+                                            <!--<md-datepicker ng-model="rbModel.transaction.data[v_column.db_name]" md-placeholder="{{v_column.title}}">-->
+                                                <!--<md-tooltip md-direction="right">{{v_column.title}}</md-tooltip>-->
+                                            <!--</md-datepicker>-->
+                                        </div>
+
+                                        <div ng-switch-default >
+                                            <input type="text"  ng-focus="hide_listvalues()" ng-model="rbModel.transaction.data[v_column.db_name]" class="long" style="width: 100%;">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div ng-if="!v_column.editable">
+                                    <input type="text" ng-model="rbModel.transaction.data[v_column.db_name]" disabled>
+                                </div>
+
+                            </div>
+
+                            <div ng-if="v_column.listvalues != null">
+                                <input type="text"  ng-model="rbModel.transaction.data[v_column.db_name]">
+                                <!--<md-button class="md-fab md-mini md-x-mini"  aria-label=""  listvalues-button-column="{{v_column}}" ><ng-md-icon icon="list"></ng-md-icon><md-tooltip md-direction="right">Список значений</md-tooltip></md-button>-->
+
+                                <ng-md-icon icon="list" listvalues-button-column="{{v_column}}"><md-tooltip md-direction="right">Список значений</md-tooltip></ng-md-icon>
+
+                            </div>
+
+                            <div ng-if="v_column.sequence != null">
+                                <input type="text" ng-model="rbModel.transaction.data[v_column.db_name]">
+                                <!--<md-button class="md-fab md-mini md-x-mini"  aria-label="" sequencer-button-column="{{v_column}}" ><ng-md-icon icon="plus_one"></ng-md-icon><md-tooltip md-direction="right">Получить следующий номер</md-tooltip></md-button>-->
+                                <ng-md-icon icon="plus_one" sequencer-button-column="{{v_column}}"><md-tooltip md-direction="right">Получить следующий номер</md-tooltip></ng-md-icon>
+                            </div>
+
+                            <div ng-if="v_column.combobox != null" style="padding-top: 3px; padding-bottom: 3px;">
+                                <rb-data-combobox combobox-column="{{v_column}}" label="v_column.title" placeholder="{{v_column.title}}"><md-tooltip md-direction="right">Список возможных значений для {{v_column.title}}</md-tooltip></rb-data-combobox>
+                            </div>
+
+                        </div>
+                </div>
+            </md-dialog-content>
+
+            <md-dialog-actions layout="row">
+                <span flex></span>
+                <md-button class="md-raised md-primary" ng-click="ok()" ng-show="$root.user.logged" aria-label="ОК">OK</md-button>
+                <md-button class="md-raised" ng-click="cancel()" aria-label="Cancel">Cancel</md-button>
+                <!--<md-button class="md-raised md-primary" ng-click="ok()" ng-show="$root.user.logged" aria-label="ОК"><ng-md-icon icon="done"></ng-md-icon></md-button>-->
+                <!--<md-button class="md-raised" ng-click="cancel()" aria-label="Отмена"><ng-md-icon icon="close"></ng-md-icon></md-button>-->
+            </md-dialog-actions>
+
+        </form>
+
+</md-dialog>

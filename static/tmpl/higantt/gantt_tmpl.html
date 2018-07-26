@@ -1,0 +1,104 @@
+<div>
+    <div layout="row" layout-align="start center" >
+
+        <hi-gantt-timescales hi-change-handler="onTimeScaleChanged" hi-title="Цена деления шкалы времени" style="margin-left: 5px;"></hi-gantt-timescales>
+
+        <hi-gantt-zoom-column hi-change-handler="onZoomColumnChanged" hi-data-model="column_width_percent" hi-title="Масштаб" style="height: 32px; width: 200px; margin-left: 5px;"></hi-gantt-zoom-column>
+        <!--<hi-gantt-zoom-percent-column hi-change-handler="onZoomPercentColumnChanged"  hi-data-model="column_width_percent" hi-title="Масштаб" style="height: 32px; width: 100px;"></hi-gantt-zoom-percent-column>
+        -->
+        <label>с</label>
+        <input type="date"  ng-model="search_date_start" ng-required="false">
+
+        <label>по</label>
+        <input type="date"  ng-model="search_date_end" ng-required="false">
+
+        <ng-transclude style="margin-left: 5px;"></ng-transclude>
+        <div flex></div>
+        <md-button class="md-raised md-primary" ng-click="onClickReload()">Обновить</md-button>
+    </div>
+
+    <div id="x_gantt" class="x-gantt no-selection" ng-style="x_gantt_area_style">
+
+        <div id="x_gantt_table_column_header_id" ng-style="table_columns_header_style" class="x-gantt-columns-header no-selection">
+            <div
+                    ng-repeat="tbl_column_header in table_columns_headers track by $index"
+                    ng-style="tbl_column_header.style"
+                    class="x-gantt-cell x-gantt-header-column  no-selection">
+                {{tbl_column_header.text}}
+            </div>
+        </div>
+
+        <div id="x_gantt_column_header_id" ng-style="column_header_style" class="x-gantt-columns-header no-selection">
+
+            <div
+                    ng-repeat="month_header in months_header track by $index"
+                    ng-style="month_header.style"
+                    class="x-gantt-cell x-gantt-header-column  no-selection">
+                {{month_header.text}}
+            </div>
+
+            <div
+                    ng-repeat="column_header in columns_header track by $index"
+                    ng-style="column_header.style"
+                    class="x-gantt-cell x-gantt-header-column  no-selection">
+                {{column_header.text}}
+            </div>
+
+        </div>
+
+        <scroll-area id="x_gantt_grid_id" hi-scroll-handler="onScrollGridArea" class="x-gantt-grid  no-selection" ng-style="grid_position">
+
+            <div class=" no-selection">
+
+                <div
+                        ng-repeat="gantt_column in columns track by $index"
+                        ng-style="gantt_column.style"
+                        class="x-gantt-cell x-gantt-column  no-selection">
+                </div>
+
+                <div
+                        ng-repeat="gantt_row in gantt_items track by $index"
+                        ng-style="gantt_row.styles.row"
+                        class="x-gantt-cell x-gantt-row  no-selection">
+                </div>
+
+                <div
+                        ng-repeat="gantt_item in gantt_items track by $index"
+                        ng-style="gantt_item.styles.item"
+                        class="x-gantt-cell x-gantt-box x-gantt-item  no-selection"
+                        ng-click="showGanttItemDialog(event, $index, gantt_item)">
+                    {{gantt_item.text}}
+                </div>
+
+            </div>
+
+        </scroll-area>
+
+        <scroll-area id="x_gantt_rows_header_id" hi-scroll-handler="onScrollRowsArea" class="x-gantt-grid no-selection" ng-style="row_header_style">
+            <div
+                    ng-repeat="table_row in gantt_items track by $index"
+                    ng-style="table_row.styles.row_header"
+                    class="x-gantt-cell x-gantt-table-row  no-selection"
+                    ng-click="showGanttItemDialog(event, $index, table_row)">
+                <hi-gantt-table-cell
+                    ng-repeat="table_column_row in table_row.styles.table_row track by $index"
+                    ng-style="table_column_row.position"
+                    class="x-gantt-cell x-gantt-table-row-item"
+                    ng-model="table_row[table_column_row.id]"
+                    >
+
+                </hi-gantt-table-cell>
+                <!--<div-->
+                        <!--ng-repeat="table_column_row in table_row.styles.table_row track by $index"-->
+                        <!--ng-style="table_column_row.position"-->
+                        <!--class="x-gantt-cell x-gantt-table-row-item">-->
+                    <!--{{table_row[table_column_row.id]}}-->
+                <!--</div>-->
+
+            </div>
+        </scroll-area>
+
+        <vertical-divider id="x_gantt_vertical_delimiter" ng-style="vertical_delimiter_style" class="no-selection" hi-vertical-divider-handler="onVerticalDividerChanged"></vertical-divider>
+
+    </div>
+</div>

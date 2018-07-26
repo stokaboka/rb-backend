@@ -1,0 +1,13 @@
+<md-dialog aria-label="История изменения" class="dialogdemoBasicUsage">
+    <md-content>
+        <md-subheader class="md-sticky-no-effect dialog-title">История изменений</md-subheader>
+        <br/>
+        <rb-table ng-attr-row-source="{{history}}"></rb-table>
+
+    </md-content>
+    <div class="md-dialog-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="hide()" aria-label="OK" class="md-raised md-primary"><ng-md-icon icon="done"></ng-md-icon></md-button>
+        <md-button ng-click="cancel()" aria-label="Отмена" class="md-raised"><ng-md-icon icon="close"></ng-md-icon></md-button>
+    </div>
+</md-dialog>

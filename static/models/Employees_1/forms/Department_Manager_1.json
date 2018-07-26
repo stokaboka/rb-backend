@@ -1,0 +1,1 @@
+{"component_type":"form","id":"Department_Manager_1","layout":"TWO_DATASOURCE_HORIZONTAL","numberOfBlocks":null,"title":"Department Manager","description":"","order":0,"enabled":true,"datasources":["dept_manager_view_1","salaries_1"],"parameters":[],"actions":[]}

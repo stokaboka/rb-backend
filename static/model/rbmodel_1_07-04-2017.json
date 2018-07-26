@@ -1,0 +1,161 @@
+{
+    "id": "RedButtonTest_01",
+    "default": {
+        "database": "system",
+        "database_engine": "mysql"
+    },
+
+    "datasources": [
+        ["+", "model/docs/ds/documents.json", "documents"],
+        ["+", "model/docs/ds/tasks.json", "tasks"],
+        ["+", "model/docs/ds/documents_history.json", "documents_history"],
+        ["+", "model/docs/ds/tasks_history.json", "tasks_history"],
+        ["+", "model/docs/ds/v_documents_tasks.json", "v_documents_tasks"],
+        ["+", "model/docs/ds/v_document_or_tasks.json", "v_document_or_tasks"],
+        ["+", "model/docs/ds/v_documents_tasks_gantt.json", "v_documents_tasks_gantt"],
+
+        ["+", "model/docs/ds/documents_categories.json", "documents_categories"],
+        ["+", "model/docs/ds/tasks_status.json", "tasks_status"],
+        ["+", "model/docs/ds/documents_status.json", "documents_status"],
+        ["+", "model/docs/ds/documents_types.json", "documents_types"],
+        ["+", "model/docs/ds/documents_source.json", "documents_source"],
+        ["+", "model/docs/ds/control_levels.json", "control_levels"],
+        ["+", "model/docs/ds/v_employees_groups.json", "v_employees_groups"],
+
+        ["+", "model/otm/otm_tree_2010.json", "otm_tree_2010"],
+        ["+", "model/otm/otm_tree_2011.json", "otm_tree_2011"],
+        ["+", "model/otm/otm_tree_2012.json", "otm_tree_2012"],
+        ["+", "model/otm/otm_tree_2013.json", "otm_tree_2013"],
+        ["+", "model/otm/otm_tree_2014.json", "otm_tree_2014"],
+        ["+", "model/otm/otm_tree_2015.json", "otm_tree_2015"],
+        ["+", "model/otm/otm_tree_2016.json", "otm_tree_2016"],
+        ["+", "model/otm/otm_tree_2017.json", "otm_tree_2017"],
+        ["+", "model/otm/otm_instr.json", "otm_instr"],
+        ["+", "model/otm/otm_instr_body.json", "otm_instr_body"],
+
+        ["+", "model/m/v_manufactoring_process_1.json", "v_manufactoring_process_1"]
+
+    ],
+
+    "relations": [
+        {"datasource": "documents", "column": "id", "relation": {"datasource": "tasks", "column": "id_document"} },
+        {"datasource": "documents", "column": "id", "relation": {"datasource": "documents_history", "column": "id_document"} },
+
+        {"datasource": "tasks", "column": "id", "relation": {"datasource": "tasks_history", "column": "id_task"} },
+
+        {"datasource": "otm_tree_2010", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_tree_2011", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_tree_2012", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_tree_2013", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_tree_2014", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_tree_2015", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_tree_2016", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_tree_2017", "column": "id", "relation": {"datasource": "otm_instr", "column": "id_otm_object"} },
+        {"datasource": "otm_instr", "column": "id_otm_instr", "relation": {"datasource": "otm_instr_body", "column": "id_otm_instr"} }
+    ],
+
+    "forms": [
+
+        ["+", "model/redButton/about_form.json", "about_form"],
+        ["+", "model/redButton/home_form.json", "home_form"],
+        ["+", "model/redButton/designer_form.json", "designer_form"],
+
+        ["+", "model/otm/forms/otm_2017_form.json", "otm_2017_form"],
+        ["+", "model/otm/forms/otm_2016_form.json", "otm_2016_form"],
+
+        ["+", "model/m/forms/manufactoring_process_form.json", "manufactoring_process_form"],
+
+        ["+", "model/docs/forms/documents_form.json", "documents_form"],
+        ["+", "model/docs/forms/tasks_form.json", "tasks_form"],
+        ["+", "model/docs/forms/quality_gantt_form.json", "quality_gantt_form"]
+    ],
+
+    "applications": [
+        {
+            "id": "redButton",
+            "title": "Rb",
+            "description": "Red Button",
+            "enabled": true,
+            "order": 0,
+            "forms": [
+                {
+                    "id": "about_form",
+                    "enabled": true,
+                    "order": 0
+                },
+                {
+                    "id": "home_form",
+                    "enabled": true,
+                    "order": 0
+                },
+                {
+                    "id": "designer_form",
+                    "enabled": true,
+                    "order": 0
+                }
+            ]
+        },
+
+        {
+            "id": "quality_control",
+            "title": "Качество",
+            "description": "",
+            "enabled": true,
+            "order": 0,
+            "forms": [
+                {
+                    "id": "documents_form",
+                    "enabled": true,
+                    "order": 0
+                },
+                {
+                    "id": "tasks_form",
+                    "enabled": true,
+                    "order": 1
+                },
+                {
+                    "id": "quality_gantt_form",
+                    "enabled": true,
+                    "order": 2
+                }
+            ]
+        },
+
+        {
+            "id": "otm",
+            "title": "Планы ОТМ",
+            "description": "",
+            "enabled": true,
+            "order": 0,
+            "forms": [
+                {
+                    "id": "otm_2017_form",
+                    "enabled": true,
+                    "order": 0
+                },
+                {
+                    "id": "otm_2016_form",
+                    "enabled": true,
+                    "order": 1
+                }
+            ]
+        },
+
+        {
+            "id": "manufactoring_process",
+            "title": "Производство",
+            "description": "Производство",
+            "enabled": true,
+            "order": 0,
+            "forms": [
+                {
+                    "id": "manufactoring_process_form",
+                    "enabled": true,
+                    "order": 0
+                }
+            ]
+        }
+
+    ]
+    
+}

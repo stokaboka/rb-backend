@@ -1,0 +1,14 @@
+{
+  "component_type": "form",
+  "id": "designer_form",
+  "title": "Дизайнер",
+  "description": "",
+  "template": "<rb-designer-panel></rb-designer-panel>",
+
+  "datasources": [  ],
+
+  "parameters":  [  ],
+
+  "enabled": true,
+  "order": 0
+}

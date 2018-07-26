@@ -1,0 +1,14 @@
+{
+  "component_type": "form",
+  "id": "home_form",
+  "title": "Home",
+  "description": "",
+  "template": "<rb-home></rb-home>",
+
+  "datasources": [  ],
+
+  "parameters":  [  ],
+
+  "enabled": true,
+  "order": 0
+}

@@ -1,0 +1,19 @@
+<div ng-controller="WorkgroupsCtrl">
+
+  <tabset justified="false">
+      <tab heading="Рабочие группы" select="workgroupsTree_Tab_Selected();">
+          <div class="row">
+            <!--<div workgroups-tree class="col-lg-6"></div>-->
+            <workgroups-tree class="col-lg-6"></workgroups-tree>
+            <groups_employees class="col-lg-6"></groups_employees>
+          </div>
+      </tab>
+      <tab heading="Сотрудники" select="employees_Tab_Selected();">
+          <workgroups-employees></workgroups-employees>
+      </tab>
+      <tab heading="Должности" select="roles_Tab_Selected();">
+          <workgroups-roles></workgroups-roles>
+      </tab>      
+  </tabset>
+            
+</div>

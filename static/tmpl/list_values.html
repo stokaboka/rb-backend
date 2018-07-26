@@ -1,0 +1,42 @@
+<div aria-label="Список значений"  id="listValuesPanelID" ng-show="model.listvalues.visible" ng-class="model.listvalues.class" ng-style="model.listvalues.style"  ng-cloak style="background-color: #E3EEF7;">
+
+    <form id="ListValuesSearchForm" name="ListValuesSearchForm" role="form"  ng-submit="" >
+
+        <md-toolbar style="min-height: 40px;">
+            <div class="md-toolbar-tools" style="height: 40px;">
+                <h4>{{model.listvalues.ds.title}}</h4>
+                <span flex></span>
+                <!--<md-button  style="margin-top: -5px; margin-right: 5px;" aria-hidden="true" ng-click="hide()"><md-icon>close</md-icon></md-button>-->
+                <ng-md-icon icon="close" style="cursor: pointer;" ng-click="hide()"></ng-md-icon>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content" style="padding-left: 5px; padding-right: 5px;">
+
+                <md-input-container class="md-block" style="margin: 0px; min-height: 20px; height: 26px;">
+                    <label>Поиск в списке значений</label>
+                    <input id="ListValuesSearchMaskText" name="ListValuesSearchMaskText"  placeholder="строка поиска - введите от 3 до 30 символов, % и _ символы замены" ng-model="search_mask" ng-minlength="3" ng-maxlength="30">
+                    <!--<div ng-messages="ListValuesSearchForm.ListValuesSearchMaskText.$error" role="alert" multiple>-->
+                        <!--<div ng-message="maxlength" class="my-message">строка поиска не должна быть более 30 символов</div>-->
+                        <!--<div ng-message="minlength" class="my-message">строка поиска должна быть 3 или более символов</div>-->
+                    <!--</div>-->
+                </md-input-container>
+
+                <rb-table row-source="{{model.listvalues.ds.id}}"></rb-table>
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" style="padding-left: 5px; padding-right: 5px;">
+            <!--<rb-table-pager flex rb-data-source="model.listvalues.ds"></rb-table-pager>-->
+            <span flex></span>
+            <md-button class="md-raised md-primary" aria-label="OK" type="submit" ng-click="bind()">OK<md-tooltip md-direction="right">Выбрать запись</md-tooltip></md-button>
+            <md-button class="md-raised" aria-label="Отмена" ng-click="hide()" >Cancel</md-button>
+            <!--<md-button class="md-raised md-primary" aria-label="OK" type="submit" ng-click="bind()"><ng-md-icon icon="done"></ng-md-icon><md-tooltip md-direction="right">Выбрать запись</md-tooltip></md-button>-->
+            <!--<md-button class="md-raised" aria-label="Отмена" ng-click="hide()" ><ng-md-icon icon="close"></ng-md-icon></md-button>-->
+        </md-dialog-actions>
+
+    </form>
+
+</div>

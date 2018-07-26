@@ -1,0 +1,3 @@
+api.timers.setInterval(() => {
+  application.frontend.emit('test', { time: new Date() });
+}, 5000);

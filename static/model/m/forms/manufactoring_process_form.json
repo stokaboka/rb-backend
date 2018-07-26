@@ -1,0 +1,12 @@
+{
+  "component_type": "form",
+  "id": "manufactoring_process_form",
+  "title": "Загрузка оборудования",
+  "description": "По-операционные нормы времени",
+  "template": "<div><rb-table row-source='v_manufactoring_process_1' ></rb-table></div>",
+  "datasources": [
+    "v_manufactoring_process_1"
+  ],
+  "enabled": true,
+  "order": 0
+}

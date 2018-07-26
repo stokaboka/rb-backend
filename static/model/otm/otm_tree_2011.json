@@ -1,0 +1,400 @@
+{
+  "id": "otm_tree_2011",
+  "component_type": "datasource",
+  "title": "Планы ОТМ 2011",
+  "database": "otm_agat",
+  "database_engine": "oracle",
+  "table": "V_OTM_OBJECTS",
+  "update_table": "otm_object",
+  "headers": true,
+  "orderby": [],
+  "groupby": [],
+  "filter_enabled": true,
+  "order_enabled": true,
+  "pager_enabled": true,
+  "report_enabled": true,
+  "history_enabled": true,
+  "row_filter": {
+    "expression": "year = ? and parent = ? and check_otm_tree.testHierValues(id, ?, ?, ?, ?, ?, ?, ?, ?)=1",
+    "columns": null,
+    "column_binding": [
+      {
+        "column": "YEAR",
+        "filter_property": "value"
+      },
+      {
+        "column": "PARENT",
+        "filter_property": "value"
+      },
+      {
+        "column": "NAME",
+        "filter_property": "mask"
+      },
+      {
+        "column": "DATA1",
+        "filter_property": "value1"
+      },
+      {
+        "column": "DATA1",
+        "filter_property": "value2"
+      },
+      {
+        "column": "DATA2",
+        "filter_property": "value1"
+      },
+      {
+        "column": "DATA2",
+        "filter_property": "value2"
+      },
+      {
+        "column": "OTV_SHORT",
+        "filter_property": "mask"
+      },
+      {
+        "column": "ISP_SHORT",
+        "filter_property": "mask"
+      },
+      {
+        "column": "VNEDR_SHORT",
+        "filter_property": "mask"
+      }
+    ]
+  },
+  "columns": [
+    {
+      "id": "id",
+      "title": "id",
+      "db_name": "ID",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "fixed_filter": {
+        "db_name": "ID",
+        "db_type": "INT",
+        "value1": null,
+        "value2": null,
+        "mask": "",
+        "reverse": false,
+        "expression": null
+      },
+      "fixed_order": {
+        "db_name": "ID",
+        "db_type": "INT",
+        "dir": "NONE"
+      }
+    ,"visible": false
+    },
+    {
+      "id": "paragraf",
+      "title": "№№",
+      "db_name": "PARAGRAF",
+      "db_type": "STRING",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "fixed_order": {
+        "db_name": "PARAGRAF",
+        "db_type": "STRING",
+        "dir": "ASC"
+      }
+    },
+    {
+      "id": "progress_info",
+      "title": "*",
+      "db_name": "PROGRESS_INFO",
+      "db_type": "STRING",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "gadget": {
+        "type": "ICON_COLOR",
+        "replace": true
+      },
+      "data_map": {
+        "db_type_a": "STRING",
+        "db_type_b": "STRING",
+        "map": [
+          {
+            "a": "before_start",
+            "b": "label_outline:blue"
+          },
+          {
+            "a": "between_start_end_no_ok",
+            "b": "label:darkorange"
+          },
+          {
+            "a": "between_start_end_ok",
+            "b": "label:green"
+          },
+          {
+            "a": "after_end_ok",
+            "b": "star:green"
+          },
+          {
+            "a": "after_end_no_ok",
+            "b": "error:red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "name",
+      "title": "Текст мероприятия",
+      "db_name": "NAME",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "data1",
+      "title": "Начало",
+      "db_name": "DATA1",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "data2",
+      "title": "Окончание",
+      "db_name": "DATA2",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "money",
+      "title": "Затраты",
+      "db_name": "MONEY",
+      "db_type": "NUMBER",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "econom",
+      "title": "Эффект",
+      "db_name": "ECONOM",
+      "db_type": "NUMBER",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "otv_short",
+      "title": "Ответственный",
+      "db_name": "OTV_SHORT",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "isp_short",
+      "title": "Исполнитель",
+      "db_name": "ISP_SHORT",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "vnedr_short",
+      "title": "Место внедрения",
+      "db_name": "VNEDR_SHORT",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "volume",
+      "title": "Кол-во",
+      "db_name": "VOLUME",
+      "db_type": "NUMBER",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "entities",
+      "title": "ЕИ",
+      "db_name": "ENTITIES",
+      "db_type": "STRING",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "percent",
+      "title": "Процент",
+      "db_name": "PERCENT",
+      "db_type": "NUMBER",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "gadget": {
+        "type": "PROGRESS_LINEAR",
+        "replace": false
+      }
+    },
+    {
+      "id": "status",
+      "title": "Статус",
+      "db_name": "STATUS",
+      "db_type": "INT",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "data_map": {
+        "db_type_a": "INT",
+        "db_type_b": "string",
+        "map": [
+          {
+            "a": 1,
+            "b": "Действует"
+          },
+          {
+            "a": 2,
+            "b": "Перенесен"
+          },
+          {
+            "a": 3,
+            "b": "Снят"
+          }
+        ]
+      }
+    },
+    {
+      "id": "year",
+      "title": "Год",
+      "db_name": "YEAR",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "fixed_filter": {
+        "db_name": "YEAR",
+        "db_type": "INT",
+        "value1": 2011,
+        "value2": 2011,
+        "mask": "",
+        "reverse": false,
+        "expression": null
+      }
+    ,"visible": false
+    },
+    {
+      "id": "parent",
+      "title": "parent",
+      "db_name": "PARENT",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "fixed_filter": {
+        "db_name": "PARENT",
+        "db_type": "INT",
+        "value1": 0,
+        "value2": 0,
+        "mask": "",
+        "reverse": false,
+        "expression": null
+      }
+    ,"visible": false
+    },
+    {
+      "id": "is_node",
+      "title": "Узел",
+      "db_name": "IS_NODE",
+      "db_type": "INT",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "is_leaf",
+      "title": "Лист",
+      "db_name": "IS_LEAF",
+      "db_type": "INT",
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    }
+  ],
+  "validators": [],
+  "hier_connection": {
+    "parent_column": "ID",
+    "children_column": "PARENT",
+    "root_value": 0,
+    "index_column": "PARAGRAF",
+    "is_node_column": "IS_NODE",
+    "is_leaf_column": "IS_LEAF"
+  }
+}

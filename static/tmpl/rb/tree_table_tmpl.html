@@ -1,0 +1,13 @@
+<div flex layout="column">
+    <div flex layout="row">
+        <panel-header rb-data-source="service" panel-header-label="{{service.title}}">
+            <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Search()" aria-label="Найти">
+                <ng-md-icon icon="search"><md-tooltip>Обновить таблицу</md-tooltip></ng-md-icon>
+            </md-button>
+        </panel-header>
+    </div>
+
+    <div class="rb-tree-table">
+        <rb-tree-table-content rb-tree-model="model"  rb-data-source="service" class="rb-tree-table-row-group"></rb-tree-table-content>
+    </div>
+</div>

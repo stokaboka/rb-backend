@@ -1,0 +1,1 @@
+{"id":"manufactoring_process_form","layout":"","title":"Загрузка оборудования","description":"По-операционные нормы времени","template":"<div><rb-table row-source='v_manufactoring_process_1' ></rb-table></div>","order":0,"enabled":true,"datasources":["v_manufactoring_process_1"],"parameters":[],"actions":[]}

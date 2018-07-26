@@ -1,0 +1,58 @@
+{
+  "id": "otm_instr",
+  "component_type": "datasource",
+  "title": "Описание графика внедрения",
+  "database": "otm_agat",
+  "database_engine": "oracle",
+  "table": "otm_instr",
+  "update_table": "otm_instr",
+  "headers": true,
+  "orderby": [],
+  "groupby": [],
+  "report_enabled": true,
+  "history_enabled": true,
+  "single_row": true,
+  "page_length": 1,
+  "columns": [
+    {
+      "id": "id_otm_instr",
+      "title": "id_otm_instr",
+      "db_name": "ID_OTM_INSTR",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "name",
+      "title": "Описание",
+      "db_name": "NAME",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "id_otm_object",
+      "title": "id_otm_object",
+      "db_name": "ID_OTM_OBJECT",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    }
+  ],
+  "validators": []
+}

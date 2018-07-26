@@ -1,0 +1,171 @@
+<div class="rb-panel" layout="column" flex layout-padding>
+
+    <panel-header panel-header-label="{{service.title}}">
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Search_Table()" aria-label="Найти" ng-show="service.filter_row_visible">
+            <ng-md-icon icon="search"><md-tooltip>Обновить таблицу</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Excel_Table()" aria-label="Печать" ng-show="show_excel">
+            <ng-md-icon icon="file_download"><md-tooltip>Загрузить XLSX файл с текущим набором записей</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Show_History_Dialog($event, historySource)" aria-label="Найти"  ng-show="show_history">
+            <ng-md-icon icon="history"><md-tooltip>Показать историю изменений</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Create_Record($event)" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="add_circle_outline"><md-tooltip>Создать новую запись</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Delete_Record()" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="highlight_off"><md-tooltip>Удалить помеченные записи</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <div flex></div>
+
+        <rb-table-pager flex ng-attr-row-source="{{service.id}}" ng-show="show_pager"></rb-table-pager>
+
+    </panel-header>
+
+    <table class="table table-bordered table-condensed table-hover" style="margin: 0px;">
+        <rb-table-header rb-data-source="service"></rb-table-header>
+        <!--<thead class="muted">-->
+        <!--<th ng-repeat="v_column in service.columns  | filter: { visible: true }">-->
+            <!--<div layout="row" layout-align="left center">-->
+                <!--<div flex>{{v_column.title}}</div>-->
+                <!--<div layout="row" layout-align="center center" ng-show="service.order_enabled">-->
+                    <!--<div layout="column" layout-align="center center">-->
+                        <!--<ng-md-icon icon="{{v_column.order.iconUp}}"  ng-class="v_column.order.classUp" ng-click="service.changeOrder(v_column, 'ASC')">-->
+                            <!--<md-tooltip>Сортировка по возрастанию</md-tooltip>-->
+                        <!--</ng-md-icon>-->
+                        <!--<ng-md-icon icon="{{v_column.order.iconDown}}" ng-class="v_column.order.classDown" ng-click="service.changeOrder(v_column, 'DESC')">-->
+                            <!--<md-tooltip>Сортировка по убыванию</md-tooltip>-->
+                        <!--</ng-md-icon>-->
+                    <!--</div>-->
+                    <!--<div ng-show="v_column.order.num>0">{{v_column.order.num}}<md-tooltip>Очередность столбца в сортировке набора данных</md-tooltip></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</th>-->
+        <!--<th>*</th>-->
+        <!--</thead>-->
+        <tr ng-show="service.filter_row_visible">
+        <td ng-repeat="v_column in service.columns | filter: { visible: true }">
+            <div ng-switch on="v_column.filter.db_type">
+                <div ng-switch-when="INT" layout="row">
+                    <ng-md-icon icon="priority_high" class="rb-filter" ng-class="v_column.filter.reverse_class"  ng-click="service.changeFilter(v_column, 'REVERSE')">
+                        <md-tooltip>Обратный или прямой порядок вычисления выражения</md-tooltip>
+                    </ng-md-icon>
+                    <div>
+                        <input type="number"  ng-model="v_column.filter.value1" class="long" style="width: 100%;">
+                        <input type="number"  ng-model="v_column.filter.value2" class="long" style="width: 100%;">
+                        <md-tooltip>Границы интервала фильтра по числовым значаниям столбца</md-tooltip>
+                    </div>
+                </div>
+                <div ng-switch-when="NUMBER" layout="row">
+                    <ng-md-icon icon="priority_high" class="rb-filter" ng-class="v_column.filter.reverse_class"  ng-click="service.changeFilter(v_column, 'REVERSE')">
+                        <md-tooltip>Обратный или прямой порядок вычисления выражения</md-tooltip>
+                    </ng-md-icon>
+                    <div>
+                        <input type="number"  ng-model="v_column.filter.value1" class="long" style="width: 100%;">
+                        <input type="number"  ng-model="v_column.filter.value2" class="long"  style="width: 100%;">
+                        <md-tooltip>Границы интервала фильтра по числовым значаниям столбца</md-tooltip>
+                    </div>
+                </div>
+                <div ng-switch-when="DATE" layout="row">
+                    <ng-md-icon icon="priority_high" class="rb-filter" ng-class="v_column.filter.reverse_class"  ng-click="service.changeFilter(v_column, 'REVERSE')">
+                        <md-tooltip>Обратный или прямой порядок вычисления выражения</md-tooltip>
+                    </ng-md-icon>
+                    <div>
+                        <input type="date"  ng-model="v_column.filter.value1" class="long">
+                        <input type="date"  ng-model="v_column.filter.value2" class="long">
+                        <md-tooltip>Границы интервала фильтра по датам</md-tooltip>
+                    </div>
+                </div>
+                <div ng-switch-when="STRING" layout="row">
+                    <ng-md-icon icon="priority_high" class="rb-filter" ng-class="v_column.filter.reverse_class"  ng-click="service.changeFilter(v_column, 'REVERSE')">
+                        <md-tooltip>Обратный или прямой порядок вычисления выражения</md-tooltip>
+                    </ng-md-icon>
+                    <div ng-if="v_column.combobox != null">
+                        <rb-data-combobox combobox-column-filter="{{v_column}}" label="v_column.title" placeholder="{{v_column.title}}"><md-tooltip md-direction="right">Список возможных значений для {{v_column.title}}</md-tooltip></rb-data-combobox>
+                        <md-tooltip>Маска для поиска по значениям в столбце</md-tooltip>
+                    </div>
+                    <div ng-if="v_column.combobox == null" style="width: 100%; height: 100%;">
+                        <textarea  rows="2" ng-model="v_column.filter.mask" class="long" style="width: 100%; height: 100%;"></textarea>
+                        <md-tooltip>Маска для поиска по значениям в столбце</md-tooltip>
+                    </div>
+                </div>
+                <div ng-switch-when="TEXT" layout="row">
+                    <ng-md-icon icon="priority_high" class="rb-filter" ng-class="v_column.filter.reverse_class"  ng-click="service.changeFilter(v_column, 'REVERSE')">
+                        <md-tooltip>Обратный или прямой порядок вычисления выражения</md-tooltip>
+                    </ng-md-icon>
+                    <div style="width: 100%; height: 100%;">
+                        <textarea  rows="2" ng-model="v_column.filter.mask" class="long" style="width: 100%; height: 100%;"></textarea>
+                        <md-tooltip>Маска для поиска по значениям в столбце</md-tooltip>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Search_Table()" aria-label="Найти">
+                <ng-md-icon icon="search"><md-tooltip>Обновить таблицу</md-tooltip></ng-md-icon>
+            </md-button>
+        </td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="v_row in service.dataset track by $index" style="cursor: pointer;">
+            <td ng-class="v_row.current"  ng-repeat="v_cell in service.columns  | filter: { visible: true }" ng-dblclick="__edit_row($parent.$index, $event)" ng-click="__select_row($parent.$index, $event)">
+                <div ng-switch on="v_cell.db_type">
+                    <div ng-switch-when="FILE">
+                        <a href="files/{{v_row[v_cell.db_name]}}" download="{{v_row['file_original']}}"><span class="glyphicon glyphicon-download"></span> {{v_row['file_original']}}</a>
+                    </div>
+                    <div ng-switch-when="DATE" class="rb-item-format rb-date">
+                        {{v_row[v_cell.db_name] | date:'dd.MM.yyyy'}}
+                    </div>
+                    <div ng-switch-when="NUMBER" class="rb-item-format rb-number">
+                        {{v_row[v_cell.db_name] | number}}
+                    </div>
+                    <div ng-switch-when="INT" class="rb-item-format rb-number">
+                        {{v_row[v_cell.db_name] | number:0}}
+                    </div>
+                    <div ng-switch-default>
+                        <span ng-bind-html="v_row[v_cell.db_name]"></span>
+                    </div>
+                </div>
+            </td>
+            <td ng-class="v_row.current">
+                <input type="checkbox" ng-model="v_row['select']">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div layout="row" layout-align="start center" flex style="padding: 0px;">
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Search_Table()" aria-label="Найти" ng-show="service.filter_row_visible">
+            <ng-md-icon icon="search"><md-tooltip>Обновить таблицу</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Excel_Table()" aria-label="Печать" ng-show="show_excel">
+            <ng-md-icon icon="file_download"><md-tooltip>Загрузить XLSX файл с текущим набором записей</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Show_History_Dialog($event, historySource)" aria-label="Найти" ng-show="show_history">
+            <ng-md-icon icon="history"><md-tooltip>Показать историю изменений</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Create_Record($event)" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="add_circle_outline"><md-tooltip>Создать новую запись</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Delete_Record()" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="highlight_off"><md-tooltip>Удалить помеченные записи</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <div flex></div>
+
+        <rb-table-pager flex ng-attr-row-source="{{service.id}}" ng-show="show_pager"></rb-table-pager>
+
+    </div>
+
+</div>

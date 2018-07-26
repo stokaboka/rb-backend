@@ -1,0 +1,27 @@
+<div layout="row" layout-align="start center" ng-style="style.level">
+    <div ng-if="first" layout="row" layout-align="start center">
+        <ng-md-icon ng-if="model.show_hier_arrow" icon="{{row.expanded_icon}}" size="24" style="cursor: pointer;" ng-style="row.expanded_style" ng-click="onTreeNodeClick(row)" rb-visible="row.is_node">
+            <md-tooltip md-direction="right">Развернуть или свернуть</md-tooltip>
+        </ng-md-icon>
+        <ng-md-icon icon="{{row.node_icon}}" size="20" style="cursor: pointer;" ng-style="row.node_style" ng-click="onTreeNodeClick(row)">
+            <md-tooltip md-direction="right">Развернуть или свернуть</md-tooltip>
+        </ng-md-icon>
+    </div>
+
+    <div flex ng-switch on="column.db_type" ng-show="show_data" >
+
+        <div ng-switch-when="DATE" class="rb-item-format rb-date">
+            {{row.data[column.db_name] | date:'dd.MM.yyyy'}}
+        </div>
+        <div ng-switch-when="NUMBER" class="rb-item-format rb-number">
+            {{row.data[column.db_name] | number}}
+        </div>
+        <div ng-switch-when="INT" class="rb-item-format rb-number">
+            {{row.data[column.db_name] | number:0}}
+        </div>
+        <div ng-switch-default>
+            {{row.data[column.db_name]}}
+        </div>
+
+    </div>
+</div>

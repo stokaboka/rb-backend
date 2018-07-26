@@ -1,0 +1,1 @@
+{"id":"quality_gantt_form","layout":"","title":"Календарь","description":"Распределение задач на временной шкале","template":"<div><hi-gantt hi-title='Календарь' row-source='v_documents_tasks_gantt' hi-normalize-time='true' hi-options='false'></hi-gantt></div>","order":0,"enabled":true,"datasources":["v_documents_tasks_gantt"],"parameters":[],"actions":[]}

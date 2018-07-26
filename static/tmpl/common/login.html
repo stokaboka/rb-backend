@@ -1,0 +1,52 @@
+<md-dialog aria-label="Вход" class="dialogdemoBasicUsage" ng-cloak>
+
+    <form id="user_login_form" name="user_login_form" role="form"  ng-submit="user.doLogin()" >
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Вход</h2>
+                <span flex></span>
+                <!--<button type="button" class="close" style="margin-top: -5px; margin-right: 5px;" aria-hidden="true" ng-click="cancel()">×</button>-->
+                <ng-md-icon icon="close" style="cursor: pointer;" ng-click="cancel()"></ng-md-icon>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                <md-input-container class="md-block">
+                    <label>имя пользователя</label>
+                    <input id="Login" name="Login"  ng-model="user.login" required ng-minlength="1" ng-maxlength="30">
+
+                    <div ng-messages="user_login_form.Login.$error" role="alert" multiple>
+                        <div ng-message="required" class="my-message">Вы должны указать имя пользователя</div>
+                        <div ng-message="maxlength" class="my-message">Слишком короткое имя пользователя</div>
+                        <div ng-message="minlength" class="my-message">Слишком длинное имя пользователя</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>имя пользователя</label>
+                    <input id="Password" name="Password"  ng-model="user.password" type="password" required ng-minlength="1" ng-maxlength="30">
+
+                    <div ng-messages="user_login_form.Login.$error" role="alert" multiple>
+                        <div ng-message="required" class="my-message">Вы должны указать пароль пользователя</div>
+                        <div ng-message="minlength" class="my-message">Слишком короткий пароль</div>
+                        <div ng-message="maxlength" class="my-message">Слишком длинный пароль</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button class="md-raised md-primary" aria-label="OK" type="submit" ng-click="hide()">{{user.buttonPrompt}}</md-button>
+            <md-button class="md-raised" aria-label="Cancel" ng-click="cancel()" >Cancel</md-button>
+            <!--<md-button class="md-raised md-primary" aria-label="OK" type="submit" ng-click="hide()"><ng-md-icon icon="done" style="margin-right: 10px;"></ng-md-icon>{{user.buttonPrompt}}</md-button>-->
+            <!--<md-button class="md-raised" aria-label="Отмена" ng-click="cancel()" ><ng-md-icon icon="close"></ng-md-icon></md-button>-->
+        </md-dialog-actions>
+
+    </form>
+
+</md-dialog>

@@ -1,0 +1,13 @@
+<div layout="column" flex >
+
+    <rb-table row-source="{{rowSource}}" rb-on-edit-row="onEditRow({param1:selected_index})" rb-on-select-row="onSelectRow({param1:selected_index})"></rb-table>
+
+    <div id="RB_SERVICE_TABLE_BOTTOM_TOLLBAR" layout="row" layout-align="start start">
+        <rb-table-toolbar flex row-source="{{rowSource}}">
+            <md-button class="md-raised" style="height: 30px; width: 80px;" aria-label="История" ng-click="showHistoryDialog($event, historySource)">
+                История
+                <md-tooltip>История изменения сроков</md-tooltip>
+            </md-button>
+        </rb-table-toolbar>
+    </div>
+</div>

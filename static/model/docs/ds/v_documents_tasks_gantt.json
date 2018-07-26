@@ -1,0 +1,183 @@
+{
+  "id": "v_documents_tasks_gantt",
+  "component_type": "datasource",
+  "title": "Планировщик",
+  "database": "system",
+  "database_engine": "mysql",
+  "table": "v_documents_tasks_gantt",
+  "headers": true,
+  "orderby": [],
+  "groupby": [],
+  "filter_enabled": true,
+  "order_enabled": true,
+  "pager_enabled": true,
+  "report_enabled": true,
+  "history_enabled": true,
+  "insert_enabled": false,
+  "update_enabled": false,
+  "delete_enabled": false,
+  "page_length": 0,
+  "columns": [
+    {
+      "id": "id",
+      "title": "id",
+      "db_name": "id",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "start_date",
+      "title": "Начало",
+      "db_name": "start_date",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "default_filter": {
+        "db_name": "",
+        "db_type": "",
+        "value1": "2015-12-31T21:00:00.000Z",
+        "value2": null,
+        "mask": "",
+        "reverse": false,
+        "expression": null
+      },
+      "default_order": {
+        "db_name": "",
+        "db_type": "",
+        "dir": "ASC"
+      }
+    },
+    {
+      "id": "end_date",
+      "title": "Окончание",
+      "db_name": "end_date",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "text",
+      "title": "Задача",
+      "db_name": "text",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "progress",
+      "title": "Выполнено",
+      "db_name": "progress",
+      "db_type": "NUMBER",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "duration",
+      "title": "Длительность",
+      "db_name": "duration",
+      "db_type": "NUMBER",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "parent",
+      "title": "Родитель",
+      "db_name": "parent",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "progress_status",
+      "title": "progress_status",
+      "db_name": "progress_status",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "data_map": {
+        "db_type_a": "INT",
+        "db_type_b": "string",
+        "map": [
+          {
+            "a": 11,
+            "b": "Aquamarine"
+          },
+          {
+            "a": 12,
+            "b": "Coral"
+          },
+          {
+            "a": 13,
+            "b": "Red"
+          },
+          {
+            "a": 21,
+            "b": "DarkSeaGreen "
+          },
+          {
+            "a": 22,
+            "b": "LimeGreen"
+          },
+          {
+            "a": 23,
+            "b": "Green"
+          },
+          {
+            "a": 31,
+            "b": "LightGreen "
+          },
+          {
+            "a": 32,
+            "b": "LightGreen"
+          },
+          {
+            "a": 33,
+            "b": "LightGreen "
+          }
+        ]
+      }
+    }
+  ],
+  "validators": []
+}

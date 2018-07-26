@@ -1,0 +1,5 @@
+api.timers.setInterval(() => {
+  console.log('Worker Process: ' + application.nodeId);
+  console.dir({ workers: application.workers });
+  console.log('---');
+}, 5000);

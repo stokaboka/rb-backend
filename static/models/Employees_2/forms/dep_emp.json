@@ -1,0 +1,1 @@
+{"component_type":"form","id":"dep_emp","layout":"TWO_ONE_DATASOURCE","numberOfBlocks":null,"title":"Department Employees","description":"Department Employees","order":0,"enabled":true,"datasources":["dept_emp_view_1","salaries_emp","titles_emp"],"parameters":[],"actions":[]}

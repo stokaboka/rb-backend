@@ -1,0 +1,21 @@
+{
+  "id":"tasks_form",
+  "layout":"",
+  "title":"Задачи",
+  "description":"Свод задач по контролю качества",
+  "template":"<div><rb-table row-source='v_document_or_tasks' rb-on-edit-row='edit_row()'></rb-table></div>",
+  "order":0,
+  "enabled":true,
+  "datasources":["v_document_or_tasks"],
+  "parameters":[],
+  "actions":[
+    {
+      "event":"doubleclick",
+      "datasource":"v_document_or_tasks",
+      "action":"OPEN_FORM",
+      "target":"documents_form",
+      "parameter":"document_id",
+      "column":"d_id"
+    }
+  ]
+}

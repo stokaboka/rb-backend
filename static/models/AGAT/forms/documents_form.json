@@ -1,0 +1,12 @@
+{
+  "id":"documents_form",
+  "layout":"",
+  "title":"Документы",
+  "description":"Мероприятиям по контролю за качеством",
+  "template":"<div> <rb-table row-source='documents' history-source='documents_history'></rb-table>  <rb-table row-source='tasks' history-source='tasks_history'></rb-table> </div>",
+  "order":0,
+  "enabled":true,
+  "datasources":["documents","documents_history","tasks","tasks_history"],
+  "parameters":[{"datasource":"documents","parameter":"document_id"}],
+  "actions":[]
+}

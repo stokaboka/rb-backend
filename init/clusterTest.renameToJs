@@ -1,0 +1,26 @@
+api.timers.setInterval(() => {
+  application.backend.emit('test', { data: 'data' });
+}, 5000);
+
+const startTime = new Date().getTime();
+let count = 0;
+
+function test() {
+  count++;
+  application.backend.call('method1', { sample: 'sample' }, (/*res*/) => {
+    test();
+  });
+}
+
+api.timers.setTimeout(test, 1000);
+api.timers.setTimeout(test, 1200);
+api.timers.setTimeout(test, 1400);
+
+api.timers.setInterval(() => {
+  const endTime = new Date().getTime();
+  const processingTime = endTime - startTime;
+  console.log(
+    application.nodeId + ' Processing time: ' +
+    processingTime + ' count: ' + count
+  );
+}, 5000);

@@ -1,0 +1,1 @@
+{"id":"dual_2","description":"DUAL 2","default":{"database":null,"database_engine":null},"applications":[],"forms":[],"datasources":[["+","/models/dual_2/ds/dual1.json","dual1"]],"relations":[],"listvalues":[],"comboboxes":[],"lists":[],"sequences":[],"rowvalidators":[],"rowfilters":[],"hierarchymodels":[],"datamaps":[],"gadgets":[],"bindings":[]}

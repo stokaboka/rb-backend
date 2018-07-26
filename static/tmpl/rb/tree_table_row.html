@@ -1,0 +1,10 @@
+<div class="rb-tree-table-row" ng-click="onRowClick(row)" ng-dblclick="onRowDoubleClick(row)">
+    <rb-tree-table-cell
+            ng-repeat="column in model.columns  | filter: {visible: true}  track by $index"
+            rb-tree-model="model"
+            rb-tree-row="row"
+            rb-tree-column="column"
+            rb-tree-column-first="$first"
+            ng-class="column.filter.active_class">
+    </rb-tree-table-cell>
+</div>

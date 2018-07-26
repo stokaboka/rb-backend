@@ -1,0 +1,27 @@
+{
+  "component_type": "form",
+  "id": "tasks_form",
+  "title": "Задачи",
+  "description": "Свод задач по контролю качества",
+  "template": "<div><rb-table row-source='v_document_or_tasks' rb-on-edit-row='edit_row()'></rb-table></div>",
+
+  "datasources":
+  [
+    "v_document_or_tasks"
+  ],
+
+  "actions":
+  [
+    {
+      "event": "doubleclick",
+      "datasource": "v_document_or_tasks",
+      "action": "OPEN_FORM",
+      "target": "documents_form",
+      "parameter": "document_id",
+      "column": "d_id"
+    }
+  ],
+
+  "enabled": true,
+  "order": 0
+}

@@ -1,0 +1,12 @@
+// Catch event by name
+
+application.backend.on('test', (data) => {
+  console.log('Event "test" received by: ' + application.nodeId);
+  console.log('  data: ' + api.json.stringify(data));
+});
+
+api.timers.setInterval(() => {
+  application.backend.emit(
+    'test', { sender: application.nodeId, data: 'data' }
+  );
+}, 5000);

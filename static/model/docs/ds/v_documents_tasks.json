@@ -1,0 +1,443 @@
+{
+  "id": "v_documents_tasks",
+  "component_type": "datasource",
+  "title": "Документы и задачи",
+  "database": "system",
+  "database_engine": "mysql",
+  "table": "v_documents_tasks",
+  "headers": true,
+  "insert_enabled": false,
+  "update_enabled": false,
+  "delete_enabled": false,
+  "autoload": true,
+  "orderby": [
+    "start"
+  ],
+  "groupby": [],
+  "filter_enabled": true,
+  "order_enabled": true,
+  "pager_enabled": true,
+  "report_enabled": true,
+  "history_enabled": true,
+  "page_length": 10,
+  "columns": [
+    {
+      "id": "id",
+      "title": "id",
+      "db_name": "id",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "status",
+      "title": "Статус",
+      "db_name": "status",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "combobox": {
+        "datasource": "documents_status",
+        "placeholder": "Статус",
+        "label": "name",
+        "binding": {
+          "items": [
+            {
+              "source": "name",
+              "target": "status",
+              "target_type": "STRING",
+              "visible": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "category",
+      "title": "Категория",
+      "db_name": "category",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "combobox": {
+        "datasource": "documents_categories",
+        "placeholder": "Категория",
+        "label": "name",
+        "binding": {
+          "items": [
+            {
+              "source": "name",
+              "target": "category",
+              "target_type": "STRING",
+              "visible": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "name",
+      "title": "Документ",
+      "db_name": "name",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "combobox": {
+        "datasource": "documents_types",
+        "placeholder": "Вид документа",
+        "label": "name",
+        "binding": {
+          "items": [
+            {
+              "source": "name",
+              "target": "name",
+              "target_type": "STRING",
+              "visible": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "num",
+      "title": "№",
+      "db_name": "num",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "num_control",
+      "title": "№ карточки",
+      "db_name": "num_control",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "sequence": {
+        "database": "system",
+        "database_engine": "mysql",
+        "sequence_id": "documents.num_control",
+        "target": "num_control"
+      }
+    },
+    {
+      "id": "control_level",
+      "title": "ВП",
+      "db_name": "control_level",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true,
+      "combobox": {
+        "datasource": "control_levels",
+        "placeholder": "Вид контроля",
+        "label": "name",
+        "binding": {
+          "items": [
+            {
+              "source": "name",
+              "target": "control_level",
+              "target_type": "STRING",
+              "visible": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "task",
+      "title": "Текст документа",
+      "db_name": "task",
+      "db_type": "TEXT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "start",
+      "title": "Начало",
+      "db_name": "start",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "end",
+      "title": "Срок",
+      "db_name": "end",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "fixed",
+      "title": "Закрыто",
+      "db_name": "fixed",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "id_curator",
+      "title": "id_curator",
+      "db_name": "id_curator",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "curator_fio",
+      "title": "Ответственный",
+      "db_name": "curator_fio",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "curator_role",
+      "title": "Должность",
+      "db_name": "curator_role",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_id",
+      "title": "t_id",
+      "db_name": "t_id",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "t_num",
+      "title": "№",
+      "db_name": "t_num",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_num_control",
+      "title": "№ карт.",
+      "db_name": "t_num_control",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_control_level",
+      "title": "Документ",
+      "db_name": "t_control_level",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_task",
+      "title": "Задача",
+      "db_name": "t_task",
+      "db_type": "TEXT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_start",
+      "title": "Начало",
+      "db_name": "t_start",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_end",
+      "title": "Срок",
+      "db_name": "t_end",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_fixed",
+      "title": "Закрыто",
+      "db_name": "t_fixed",
+      "db_type": "DATE",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_status",
+      "title": "Статус",
+      "db_name": "t_status",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_id_executor",
+      "title": "id_executor",
+      "db_name": "t_id_executor",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "t_executor_fio",
+      "title": "Исполнитель",
+      "db_name": "t_executor_fio",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_executor_role",
+      "title": "Должность",
+      "db_name": "t_executor_role",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    },
+    {
+      "id": "t_executor_group",
+      "title": "Группа",
+      "db_name": "t_executor_group",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    }
+  ],
+  "validators": []
+}

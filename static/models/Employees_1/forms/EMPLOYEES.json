@@ -1,0 +1,1 @@
+{"component_type":"form","id":"EMPLOYEES","layout":"SINGLE_DATASOURCE","numberOfBlocks":null,"title":"Employees","description":"Employees","order":0,"enabled":true,"datasources":["employees_2"],"parameters":[],"actions":[]}

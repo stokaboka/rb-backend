@@ -1,0 +1,5 @@
+<div>
+    <rb-tree-table-header rb-tree-model="model" ></rb-tree-table-header>
+    <rb-table-filter rb-data-source="service" rb-reload-button="false"></rb-table-filter>
+    <rb-tree-table-row ng-repeat="row in root.items track by $index" rb-tree-model="model" rb-tree-row="row" rb-tree-test="$index"></rb-tree-table-row>
+</div>

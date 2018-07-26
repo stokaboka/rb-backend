@@ -1,0 +1,8 @@
+<md-select ng-model="selectedItem" aria-label="label">
+    <md-option  value="{{item}}" ng-click="onClick(-1)">
+        {{defaultValueLabel}}
+    </md-option>
+    <md-option ng-repeat="item in service.dataset" ng-value="item" ng-click="onClick($index)">
+        {{item[labelField]}}
+    </md-option>
+</md-select>

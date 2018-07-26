@@ -1,0 +1,10 @@
+<div layout="row" layout-align="start center">
+
+    <rb-table-pager flex ng-attr-row-source="{{service_id}}"></rb-table-pager>
+    <rb-search flex ng-attr-row-source="{{service_id}}"></rb-search>
+    <rb-create-record-button style="margin-left: 5px;"  ng-attr-row-source="{{service_id}}" ng-show="user.logged"></rb-create-record-button>
+    <rb-delete-records-button style="margin-left: 5px;" ng-attr-row-source="{{service_id}}" ng-show="user.logged"></rb-delete-records-button>
+
+    <ng-transclude flex style="margin-left: 5px;"></ng-transclude>
+
+</div>

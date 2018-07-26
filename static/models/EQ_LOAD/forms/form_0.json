@@ -1,0 +1,1 @@
+{"id":"form_0","layout":"TWO_DATASOURCE_VERTICAL","title":"FORM_0","description":"","template":"<div>FORM_0 - </div>","order":0,"enabled":true,"datasources":["log_1","v_manufactoring_process_1"],"parameters":[],"actions":[]}

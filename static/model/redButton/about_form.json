@@ -1,0 +1,14 @@
+{
+  "component_type": "form",
+  "id": "about_form",
+  "title": "About",
+  "description": "",
+  "template": "<rb-about></rb-about>",
+
+  "datasources": [  ],
+
+  "parameters":  [  ],
+
+  "enabled": true,
+  "order": 0
+}

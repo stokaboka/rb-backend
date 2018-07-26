@@ -1,0 +1,51 @@
+{
+  "id": "documents_types",
+  "component_type": "datasource",
+  "title": "Категории документов",
+  "database": "system",
+  "database_engine": "mysql",
+  "table": "documents_types",
+  "headers": true,
+  "insert_enabled": false,
+  "update_enabled": false,
+  "delete_enabled": false,
+  "page_length": 0,
+  "orderby": [
+    "id"
+  ],
+  "groupby": [],
+  "filter_enabled": true,
+  "order_enabled": true,
+  "pager_enabled": true,
+  "report_enabled": true,
+  "history_enabled": true,
+  "columns": [
+    {
+      "id": "id",
+      "title": "id",
+      "db_name": "id",
+      "db_type": "INT",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true
+    ,"visible": false
+    },
+    {
+      "id": "name",
+      "title": "Документ",
+      "db_name": "name",
+      "db_type": "STRING",
+      "filter_enabled": true,
+      "order_enabled": true,
+      "editable": true,
+      "query": true,
+      "update": true,
+      "db": true,
+      "visible": true
+    }
+  ],
+  "validators": []
+}

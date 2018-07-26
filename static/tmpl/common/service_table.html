@@ -1,0 +1,69 @@
+<div class="rb-panel" layout="column" flex layout-padding>
+
+    <panel-header panel-header-label="{{service.title}}">
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Search_Table()" aria-label="Найти" ng-show="service.filter_row_visible">
+            <ng-md-icon icon="search"><md-tooltip>Обновить таблицу</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Excel_Table()" aria-label="Печать" ng-show="show_excel">
+            <ng-md-icon icon="file_download"><md-tooltip>Загрузить XLSX файл с текущим набором записей</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Show_History_Dialog($event, historySource)" aria-label="Найти"  ng-show="show_history">
+            <ng-md-icon icon="history"><md-tooltip>Показать историю изменений</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Create_Record($event)" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="add_circle_outline"><md-tooltip>Создать новую запись</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Delete_Record()" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="highlight_off"><md-tooltip>Удалить помеченные записи</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <div flex></div>
+
+        <rb-table-pager flex ng-attr-row-source="{{service.id}}" ng-show="show_pager"></rb-table-pager>
+
+    </panel-header>
+
+    <div class="rb-table" style="margin: 0px;">
+
+        <rb-table-header rb-data-source="service" rb-mark-records="true"></rb-table-header>
+
+        <rb-data-table-order rb-data-source="service" rb-reload-button="true" ng-show="service.filter_row_visible"></rb-data-table-order>
+
+        <rb-data-table-row rb-data-source="service" rb-mark-records="true" ></rb-data-table-row>
+
+    </div>
+
+    <div layout="row" layout-align="start center" flex style="padding: 0px;">
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Search_Table()" aria-label="Найти" ng-show="service.filter_row_visible">
+            <ng-md-icon icon="search"><md-tooltip>Обновить таблицу</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Excel_Table()" aria-label="Печать" ng-show="show_excel">
+            <ng-md-icon icon="file_download"><md-tooltip>Загрузить XLSX файл с текущим набором записей</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Show_History_Dialog($event, historySource)" aria-label="Найти" ng-show="show_history">
+            <ng-md-icon icon="history"><md-tooltip>Показать историю изменений</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Create_Record($event)" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="add_circle_outline"><md-tooltip>Создать новую запись</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button md-primary rb-no-margin" ng-click="__do_Delete_Record()" aria-label="Найти" ng-show="user.logged">
+            <ng-md-icon icon="highlight_off"><md-tooltip>Удалить помеченные записи</md-tooltip></ng-md-icon>
+        </md-button>
+
+        <div flex></div>
+
+        <rb-table-pager flex ng-attr-row-source="{{service.id}}" ng-show="show_pager"></rb-table-pager>
+
+    </div>
+
+</div>
